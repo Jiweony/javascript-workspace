@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+  <h1>Title</h1>
+  <p id="p1">Paragraph1</p>
+  <p class="p2">Paragraph<b>2</b></p>
+  <p class="p2">Paragraph3</p>
+  <script>
+    console.log(document.getElementById("p1"));
+    console.log(document.getElementsByClassName("p2"));
+
+    const p = document.getElementById("p1");
+    p.textContent = "Title change";
+
+    const pClass = document.getElementsByClassName("p2");
+    console.log(pClass[0].innerHTML); // 텍스트 + 태그
+    console.log(pClass[0].innerText); // 텍스트(숨겨진 요소의 텍스트 미포함)
+    console.log(pClass[0].textContent); // 텍스트 +  숨겨진 요소 포함
+  </script>
+</body>
+</html>

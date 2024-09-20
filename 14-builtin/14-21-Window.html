@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  <script>
+    if(false){
+      window.alert("Hello, world!");
+      const result = window.confirm();
+      console.log(result); //true \ false
+      
+      result = window.prompt();
+      console.log(result);
+
+      window.location.href //리다이렉션
+
+      //현재 브라우저 창의 너비/높이
+      console.log(window.innerHeight);
+      console.log(window.innerWidth);
+    }
+    //로컬 스토리지
+    window.localStorage.setItem("username", "오일남");
+    const username = window.localStorage.getItem("username");
+
+    console.log(`현재 사용자는 ${username}입니다.`);
+    window.localStorage.removeItem("age");
+
+    //세션 스토리지
+    window.sessionStorage.setItem("sessionKey", "abcd1234");
+    const key = window.sessionStorage.getItem("sessionKey");
+    window.sessionStorage.removeItem("sessionKey");
+    window.sessionStorage.clear(); //모든 키 삭제
+
+    const user = {name: "오일남", age: 99};
+    window.sessionStorage.setItem("user", JSON.stringify(user));
+    JSON.parse(window.sessionStorage.getItem("user"));
+
+    //로컬 스토리지의 데이터는 사용자가 지우지 않는 이상 계속 브라우저에 남아있음
+    //세션 스토리지의 데이터는 윈도우나 브라우저 탭을 닫을 경우 제거됨
+    window.setTimeout(()=>{
+      console.log("1초 뒤 출력");
+      
+    }, 1000)
+
+    window.setInterval(()=>{
+      console.log("1초 마다 실행");
+      if(count === 3){
+        clearInterval();
+      }
+      
+    }, 1000)
+  </script>
+</body>
+</html>
