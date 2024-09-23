@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div>
+    <button><span>버튼1</span></button>
+    <button><span>버튼2</span></button>
+    <button><span>버튼3</span></button>
+  </div>
+  <script>
+    const btns = document.querySelectorAll("button");
+    console.log(btns);
+
+    function handleBtn() {
+      console.log(this);
+    }
+
+    btns[0].addEventListener("click", handleBtn)
+
+    //addEventListener()를 많이 사용하면 메모리 사용이 늘어남
+    btns.forEach((_, i) => {
+      btns[i].addEventListener("click", handleBtn)
+    })
+    
+  </script>
+</body>
+</html>

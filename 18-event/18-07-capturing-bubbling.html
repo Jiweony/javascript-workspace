@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    html {
+      background-color: antiquewhite;
+    }
+    body{
+      background-color: aqua;
+    }
+    body * {
+      margin: 10px;
+      border: 1px solid blue;
+    }
+  </style>
+</head>
+<body>
+  <form action="">
+    <div>DIV
+      <p>p</p>
+    </div>
+  </form>
+  <script>
+    const allDom = document.querySelectorAll("*");
+    for(let elem of allDom){
+      elem.addEventListener("click", ()=>console.log(`캡쳐링: ${elem.tagName}`),true) 
+    }
+  </script>  
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    span {
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <button class="btn" value="1"><span class="btn-label">버튼1</span></button>
+    <button class="btn" value="2"><span class="btn-label">버튼2</span></button>
+    <button class="btn" value="3"><span class="btn-label">버튼3</span></button>
+  </div>
+  <script>
+    const menu = document.querySelector(".menu");
+
+    function handleBtn() {
+      let elem = e.target;
+      while(!elem.classList.contains('btn')){
+        elem = elem.parentNode;
+
+        if(elem.nodeName === "BODY"){
+          elem = null;
+          return;
+        }
+      }   
+    }
+    menu.addEventListener("click", handleBtn)
+
+  </script>
+</body>
+</html>
