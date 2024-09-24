@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /**
+     * Promise 객체
+     * - State: 대기(Pending), 성공(Fulfilled), 실패(Rejected)
+     * - Result: 비어있음, 결과값, 에러 객체
+     * 
+     * execute 함수: 생성자 함수가 호출될 때 실행됨  
+    */
+    if(false){
+      // case 1
+      const promise = new Promise((resolve, reject)=>{
+        console.log("비동기 작업");
+      })
+    }
+
+    // case 2
+    const promise2 = new Promise((resolve, reject)=>{
+        setTimeout(() => {
+          //const data = {name: '오일남'};
+          const data = null;
+
+          if(data){
+            console.log("네트워크 요청 성공!");
+            resolve(data);  
+          }else{
+            reject(new Error("네트워크 문제 발생!"))
+          }
+        }, 2000);
+      })
+
+      setTimeout(() => {
+        console.log(promise);
+      }, 3000);
+
+      // case 3
+      // Promise 객체를 사용할 함수 정의
+      function getData() {
+        const promise = new Promise((resolve, reject)=>{
+          setTimeout(() => {
+            const data = {name: "오일남"}; 
+            if(data){
+              console.log("네트워크 요청 성공!");
+              resolve(data);  
+            }else{
+              reject(new Error("네트워크 문제 발생!"))
+            }     
+          }, 2000);
+        })
+        return promise;
+      }
+
+      const promise3 = getData();
+      console.log(promise3);
+
+      promise3.then((data)=>{
+        const {name} = data;
+        console.log(`${name}님 안녕하세요.`);
+      }).catch((error)=>{
+        console.log("에러가 발생했습니다. 다시 시도해 주십시요.");
+      }).finally(()=>{
+        console.log("성공, 실패와 상관없이 반드시 실행되는 코드");
+      })
+      
+  </script>
+</body>
+</html>
